@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { TabViewModule, DataTableModule } from 'primeng/primeng';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
 import { ButtonModule } from 'primeng/components/button/button';
+import { TooltipModule } from 'primeng/components/tooltip/tooltip';
 
 import { AppComponent } from './app.component';
 
@@ -18,7 +19,8 @@ import { AppComponent } from './app.component';
     TabViewModule,
     DataTableModule,
     ButtonModule,
-    InputTextModule
+    InputTextModule,
+    TooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
