@@ -1,0 +1,8 @@
+.navbar{
+    padding: 10px 0; /* espaçamento interno do componente*/
+    background-color: #1e94d2;
+}
+
+.navbar-toggle{
+    color: #fff;
+}
