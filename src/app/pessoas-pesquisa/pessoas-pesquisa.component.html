@@ -27,7 +27,12 @@
                let-pess (criando uma variavel chamada lanc para iterar os itens)
             -->
             <ng-template let-pess="rowData" pTemplate="body">
-              <span [style.color]= "pess.status === 'Ativo' ? 'green' : 'red'">{{pess.status}}</span>
+              <span [style.color]= "pess.status ? 'green' : 'red'"
+               [pTooltip]="pess.status ? 'Desativar' : 'Ativar'" tooltipPosition="bottom">
+               {{pess.status ? 'Ativo' : 'Inativo'}}
+              </span>
+              
+               
             </ng-template>
           </p-column>
           <p-column header="Ações" styleClass="col-acoes">
