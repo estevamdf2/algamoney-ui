@@ -2,11 +2,17 @@
   <div class="container">
     <div class="ui-g">
       <div class="ui-g-12">
-        <a href="javascript:;" class="navbar-toggle">
+        <a href="javascript:;" class="navbar-toggle" (click)="exibindoMenu = !exibindoMenu">
           <i class="fa fa-bars"></i>
         </a>      
-
       </div>
     </div>
   </div>
-</nav>
+
+  <ul class="navbar-menu" [hidden]="!exibindoMenu">
+    <li class="navbar-usuario">José Simão</li>
+    <li class="navbar-menuitem"><a href="#"> Lancamentos </a></li>
+    <li class="navbar-menuitem"><a href="#"> Pessoas</a></li>
+    <li class="navbar-menuitem"><a href="#">Logout</a></li>
+  </ul>
+</nav> 

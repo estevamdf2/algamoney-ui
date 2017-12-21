@@ -17,7 +17,5 @@ export class LancamentosPesquisaComponent {
     {tipo: 'DESPESA', descricao: 'Vale transporte', dataVencimento: '02/12/2017',
      dataPagamento: '02/12/2017', valor: 210, pessoa: 'df trans'}
   ];
-  
-}
 
 }
