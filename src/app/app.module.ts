@@ -1,15 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import { TabViewModule, DataTableModule } from 'primeng/primeng';
-import { InputTextModule } from 'primeng/components/inputtext/inputtext';
+import { TabViewModule, DataTableModule, InputTextareaModule } from 'primeng/primeng';
 import { ButtonModule } from 'primeng/components/button/button';
 import { TooltipModule } from 'primeng/components/tooltip/tooltip';
+import { InputTextModule } from 'primeng/components/inputtext/inputtext';
 
 import { AppComponent } from './app.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
+import { FormsModule } from '@angular/forms';
+import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 
 
 
@@ -18,7 +20,8 @@ import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.co
     AppComponent,
     LancamentosPesquisaComponent,
     NavbarComponent,
-    PessoasPesquisaComponent
+    PessoasPesquisaComponent,
+    LancamentoCadastroComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,9 @@ import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.co
     DataTableModule,
     ButtonModule,
     InputTextModule,
-    TooltipModule
+    TooltipModule,
+    FormsModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
