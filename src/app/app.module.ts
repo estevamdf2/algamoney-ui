@@ -1,10 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
-import { TabViewModule, DataTableModule, InputTextareaModule } from 'primeng/primeng';
+import { TabViewModule, DataTableModule, InputTextareaModule, CalendarModule } from 'primeng/primeng';
 import { ButtonModule } from 'primeng/components/button/button';
 import { TooltipModule } from 'primeng/components/tooltip/tooltip';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
+import { SelectButtonModule } from 'primeng/components/selectbutton/selectbutton';
 
 import { AppComponent } from './app.component';
 import { LancamentosPesquisaComponent } from './lancamentos-pesquisa/lancamentos-pesquisa.component';
@@ -25,13 +27,17 @@ import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-ca
   ],
   imports: [
     BrowserModule,
+    // exigido pelo CalendarModule do primeNg
+    BrowserAnimationsModule,
     TabViewModule,
     DataTableModule,
     ButtonModule,
     InputTextModule,
     TooltipModule,
     FormsModule,
-    InputTextareaModule
+    InputTextareaModule,
+    CalendarModule,
+    SelectButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

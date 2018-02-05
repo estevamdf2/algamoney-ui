@@ -5,16 +5,24 @@
         <h1>Novo lançamento</h1>
       </div>
 
-      <!-- classe ui-fluid faz o componente ocupar 100% da largura -->
+      <div class="ui-g-12">
+        <p-selectButton [options]="tipos" #tipo></p-selectButton>
+
+      </div>
+      <!-- classe ui-fluid faz o componente ocupar 100% da largura 
+          [readonlyInput]="true" - bloqueia o usuário passar a data manualmente.
+      -->
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label>Vencimento</label>
-        <input pInputText type="text">
+        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="false"
+          [inline]="false" [showIcon]="true"></p-calendar>
       </div>
 
       <!-- class ui-md-3 quando a tela for média o campo ocupará três colunas -->
       <div class="ui-g-6 ui-md-3 ui-fluid">
-        <label>Recebimento</label>
-        <input pInputText type="text">
+        <label>{{ tipo.value === 'RECEITA' ? 'Recebimento' : 'Pagamento'}} </label>
+        <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="false"
+          [inline]="false" [showIcon]="true"></p-calendar>
       </div>
 
       <div class="ui-g-12 ui-md-9 ui-fluid">
