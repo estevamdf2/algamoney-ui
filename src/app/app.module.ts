@@ -16,6 +16,7 @@ import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.co
 import { FormsModule } from '@angular/forms';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 
 
 
@@ -25,7 +26,8 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
     LancamentosPesquisaComponent,
     NavbarComponent,
     PessoasPesquisaComponent,
-    LancamentoCadastroComponent
+    LancamentoCadastroComponent,
+    PessoaCadastroComponent
   ],
   imports: [
     BrowserModule,
