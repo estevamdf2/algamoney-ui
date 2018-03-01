@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 
-import { TabViewModule, DataTableModule, InputTextareaModule, CalendarModule, InputMaskModule } from 'primeng/primeng';
+import { TabViewModule, DataTableModule, InputTextareaModule, CalendarModule } from 'primeng/primeng';
 import { ButtonModule } from 'primeng/components/button/button';
 import { TooltipModule } from 'primeng/components/tooltip/tooltip';
 import { InputTextModule } from 'primeng/components/inputtext/inputtext';
@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 import { LancamentoCadastroComponent } from './lancamento-cadastro/lancamento-cadastro.component';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
+import { MessageComponent } from './message/message.component';
 
 
 
@@ -28,7 +29,8 @@ import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.compo
     NavbarComponent,
     PessoasPesquisaComponent,
     LancamentoCadastroComponent,
-    PessoaCadastroComponent
+    PessoaCadastroComponent,
+    MessageComponent
   ],
   imports: [
     BrowserModule,
