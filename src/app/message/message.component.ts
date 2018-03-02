@@ -15,6 +15,7 @@ import { Component, OnInit, Input } from '@angular/core';
       .ui-messages-error {
         margin: 0;
         margin-top: 4px;
+        
       }
     `
   ]
