@@ -1,5 +1,5 @@
 <div class="container">
-  <form>
+  <form #formLancamento="ngForm" autocomplete="off">
     <div class="ui-g">
       <div class="ui-g-12">
         <h1>Novo lançamento</h1>
@@ -15,7 +15,11 @@
       <div class="ui-g-6 ui-md-3 ui-fluid">
         <label>Vencimento</label>
         <p-calendar dateFormat="dd/mm/yy" [readonlyInput]="false"
-          [inline]="false" [showIcon]="true"></p-calendar>
+          [inline]="false" [showIcon]="true"
+          name="dataVencimento" ngModel #dataVencimento="ngModel"
+          required></p-calendar>
+        <app-message [control]="dataVencimento" error="required"
+            text="Informe uma data de vencimento"></app-message>
       </div>
 
       <!-- class ui-md-3 quando a tela for média o campo ocupará três colunas -->
@@ -52,13 +56,15 @@
       <div class="ui-g-12 ui-md-6 ui-fluid">
           <label>Categoria</label>
           <p-dropdown [options]="categorias" placeholder="Selecione"
-           [autoWidth]="false"></p-dropdown>
+           [autoWidth]="false" name="categoria" ngModel 
+           #categoria="ngModel" required></p-dropdown>
       </div>
 
       <div class="ui-g-12 ui-md-6 ui-fluid">
           <label>Pessoa</label>
           <p-dropdown [options]="pessoas" placeholder="Selecione"
-          [autoWidth]="false" [filter]="true"></p-dropdown>
+          [autoWidth]="false" [filter]="true" name="pessoa"
+          ngModel #pessoa="ngModel" required></p-dropdown>
       </div>
 
       <div class="ui-g-12 ui-fluid">
@@ -67,7 +73,7 @@
       </div>
 
       <div class="ui-g-12">
-        <button pButton type="submit" label="Salvar"></button>
+        <button pButton type="submit" label="Salvar" [disabled]="formLancamento.invalid"></button>
         <button pButton type="button" label="Novo" class="ui-button-info"></button>
         <a href="javascript:alert('push like animal !!!')">Voltar para pesquisa</a>
       </div>
