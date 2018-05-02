@@ -1,0 +1,24 @@
+<p-dataTable [value]="pessoas" [paginator]="true" [rows]="2" [responsive]="true">
+  <p-column field="nome" header="Nome" styleClass="col-dados"></p-column>
+  <p-column field="cidade" header="Cidade" styleClass="col-dados"></p-column>
+  <p-column field="estado" header="Estado" styleClass="col-data"></p-column>
+  <p-column field="status" header="Status" styleClass="col-data">
+    <!-- ng-template diretiva do angular
+   pTemplate diretiva do primeNG
+   let-pess (criando uma variavel chamada lanc para iterar os itens)
+-->
+    <ng-template let-pess="rowData" pTemplate="body">
+      <span [style.color]="pess.status ? 'green' : 'red'" [pTooltip]="pess.status ? 'Desativar' : 'Ativar'" tooltipPosition="bottom">
+        {{pess.status ? 'Ativo' : 'Inativo'}}
+      </span>
+
+
+    </ng-template>
+  </p-column>
+  <p-column header="Ações" styleClass="col-acoes">
+    <ng-template pTemplate="body">
+      <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></a>
+      <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="bottom"></button>
+    </ng-template>
+  </p-column>
+</p-dataTable>
