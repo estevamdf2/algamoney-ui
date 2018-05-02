@@ -18,8 +18,6 @@ import { CurrencyMaskModule } from 'ng2-currency-mask/src/currency-mask.module';
   imports: [
     CommonModule,
     FormsModule,
-
-
     DataTableModule,
     ButtonModule,
     InputTextModule,
