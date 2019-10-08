@@ -7,8 +7,9 @@ import { AppComponent } from './app.component';
 import { PessoasModule } from './pessoas/pessoas.module';
 import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { CoreModule } from './core/core.module';
-import { HttpClientModule } from '@angular/common/http';
 import { LancamentoService } from './lancamentos/lancamento.service';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -22,8 +23,9 @@ import { LancamentoService } from './lancamentos/lancamento.service';
     //Importando modulos criados
     LancamentosModule,
     PessoasModule,
-    CoreModule,    
-    HttpClientModule,
+    CoreModule,        
+    HttpModule,
+    HttpClientModule
   ],
   providers: [LancamentoService],
   bootstrap: [AppComponent]

@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http , Headers} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
-import { HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class LancamentoService {
@@ -11,10 +10,10 @@ export class LancamentoService {
 
   constructor(private http: Http) { }
 
-  pesquisar(): Promise<any> {
+  pesquisar() :Promise<any> {
 
-    const headers = new HttpHeaders();
-    headers.append('Authorization', 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCIsIndyaXRlIl0sIm5vbWUiOiJBZG1pbmlzdHJhZG9yIiwiZXhwIjoxNTY5NjA2NzE3LCJhdXRob3JpdGllcyI6WyJST0xFX0NBREFTVFJBUl9DQVRFR09SSUEiLCJST0xFX1BFU1FVSVNBUl9QRVNTT0EiLCJST0xFX1JFTU9WRVJfUEVTU09BIiwiUk9MRV9DQURBU1RSQVJfTEFOQ0FNRU5UTyIsIlJPTEVfUEVTUVVJU0FSX0xBTkNBTUVOVE8iLCJST0xFX1JFTU9WRVJfTEFOQ0FNRU5UTyIsIlJPTEVfQ0FEQVNUUkFSX1BFU1NPQSIsIlJPTEVfUEVTUVVJU0FSX0NBVEVHT1JJQSJdLCJqdGkiOiI3YTI4MTlhMS1mNGE3LTQ4Y2EtODI0YS0zNDc5OWU3NWVjMmEiLCJjbGllbnRfaWQiOiJhbmd1bGFyIn0.v5cajKFIkYnxxr3AdzqjEqXRVQoWZsJieUGOQtuzUU0');
+    const headers = new Headers();
+    headers.append('Authorization', 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MDU1MTYyNSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiZTg5ZWQ4ODItNmNkYi00NDUyLWE3OTUtNTIzMGNjMWFmMThlIiwiY2xpZW50X2lkIjoibW9iaWxlIn0.IsMNfxABG-yArt_9XeRqZuDgMca7GSporSKd3PYJr-E');
 
 
     return this.http.get(`${this.lancamentosUrl}?resumo`,{ headers })
