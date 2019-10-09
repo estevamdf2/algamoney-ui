@@ -15,10 +15,12 @@
       
         <div class="ui-g-12">
           <!-- uso do display: block - para quebrar linha -->
-          <label style="display: block">Vencimento</label>
-          <input pInputText type="text" class="data">
-          <label> até </label>
-          <input pInputText type="text" class="data">
+          <label style="display: block">Vencimento</label>          
+          <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{width: '95px'}"
+            name="vencimentoInicio" [(ngModel)]="dataVencimentoInicio"></p-calendar>
+          <label> até </label>          
+          <p-calendar dateFormat="dd/mm/yy" [inputStyle]="{width: '95px'}"
+            name="vencimentoFim" [(ngModel)]="dataVencimentoFim"></p-calendar>
         </div>
       
         <div class="ui-g-12">
