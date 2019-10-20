@@ -20,19 +20,21 @@ export class LancamentosPesquisaComponent implements OnInit {
   ngOnInit() { }
 
   pesquisar(pagina = 0){
-    pagina = 0;    
-    this.filtro.pagina = pagina;    
+    
+    this.filtro.pagina = pagina;     
 
     this.lancamentoService.pesquisar(this.filtro)
-      .then(resultado => {          
+      .then(resultado => {   
+        console.log('pesquisar res',resultado);
         this.totalRegistros = resultado.total;      
         this.lancamentos = resultado.lancamentos;        
       });
   }
 
-  aoMudarPagina(event: LazyLoadEvent){
-    // console.log(event);
+  aoMudarPagina(event: LazyLoadEvent){  
+
     const pagina = event.first / event.rows;
+    console.log('pagina ',pagina);
     this.pesquisar(pagina);
   }
 

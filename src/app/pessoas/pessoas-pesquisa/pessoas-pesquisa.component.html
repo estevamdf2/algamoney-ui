@@ -19,9 +19,8 @@
 </form>
 
   <div class="ui-g">
-      <div class="ui-g-12">
-
-          <p-dataTable [value]="pessoas" [responsive]="true"
+    <div class="ui-g-12">
+        <p-dataTable [value]="pessoas" [responsive]="true"
               emptyMessage="Nenhuma pessoa encontrada"
               [paginator]="true" [rows]="filtro.itensPorPagina"
               [lazy]="true" [totalRecords]="totalRegistros"
@@ -42,10 +41,8 @@
                 <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="bottom"></button>
               </ng-template>
             </p-column>
-            </p-dataTable>
-
-       
-      </div>
+        </p-dataTable>       
+    </div>
     
       <div class="ui-g-12">
         <a pButton label="Nova pessoa"></a>
