@@ -14,19 +14,21 @@ export class LancamentoFiltro {
 @Injectable()
 export class LancamentoService {
 
-  lancamentosUrl= 'http://localhost:4200/lancamentos';
+  lancamentosUrl= 'http://localhost:8080/lancamentos';
   
 
   constructor(private http: Http) { }
 
   pesquisar(filtro: LancamentoFiltro) :Promise<any> {
+    console.log('service ',filtro);
 
     const params = new URLSearchParams();
     const headers = new Headers();
-    headers.append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MTUzMjE2OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiMGNhODA2ZDYtZjg5MS00NmRmLTk4YTUtMGFhODM2Y2E2NTdlIiwiY2xpZW50X2lkIjoibW9iaWxlIn0.OvVFs2y6tWoADZraLq3ac_mGmrx87QSLt0j7DVZDo5o');
+    headers.append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MTUzNjY1NCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiMzlmYWMyMzgtM2I1Yi00YjU2LWE4ODMtNjA0ZWFmN2M4MTcxIiwiY2xpZW50X2lkIjoibW9iaWxlIn0.CKHC1p3V2zjjne6yiUzuPYEA9sYNKpIJ7Ij9fmJnqvo');
 
     params.set('page',filtro.pagina.toString());
     params.set('size', filtro.itensPorPagina.toString());
+    // console.log(params);
 
     if(filtro.descricao){
       params.set('descricao', filtro.descricao);
@@ -45,7 +47,7 @@ export class LancamentoService {
     return this.http.get(`${this.lancamentosUrl}?resumo`,
       { headers, search: filtro })
       .toPromise()
-      .then(response => {
+      .then(response => {        
         const responseJson = response.json();
         const lancamentos = responseJson.content;
 
