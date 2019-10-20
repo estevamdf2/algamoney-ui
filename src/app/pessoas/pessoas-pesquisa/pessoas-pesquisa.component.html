@@ -24,21 +24,23 @@
               emptyMessage="Nenhuma pessoa encontrada"
               [paginator]="true" [rows]="filtro.itensPorPagina"
               [lazy]="true" [totalRecords]="totalRegistros"
-              (onLazyLoad)="aoMudarPagina($event)">
+              (onLazyLoad)="aoMudarPagina($event)" #tabela>
             <p-column field="nome" header="Nome" styleClass="col-dados"></p-column>
-            <p-column field="cidade" header="Cidade" styleClass="col-dados"></p-column>
-            <p-column field="estado" header="Estado" styleClass="col-data"></p-column>
-            <p-column field="status" header="Status" styleClass="col-data">          
-              <ng-template let-pess="rowData" pTemplate="body">
-                <span [style.color]="pess.status ? 'green' : 'red'" [pTooltip]="pess.status ? 'Desativar' : 'Ativar'" tooltipPosition="bottom">
-                  {{pess.status ? 'Ativo' : 'Inativo'}}
-                </span>
+            <p-column field="endereco.cidade" header="Cidade" styleClass="col-dados"></p-column>
+            <p-column field="endereco.estado" header="Estado" styleClass="col-data"></p-column>
+            <p-column field="ativo" header="Status" styleClass="col-data">          
+              <ng-template let-pes="rowData" pTemplate="body">
+                <a href="javascript:;" [pTooltip]="pes.ativo ? 'Desativar' : 'Ativar'"
+                  tooltipPosition="top">
+                  {{ pes.ativo ? 'Ativo' : 'Inativo' }}
+                </a>
               </ng-template>
             </p-column>
             <p-column header="Ações" styleClass="col-acoes">
-              <ng-template pTemplate="body">
+              <ng-template pTemplate="body" let-pes="rowData">
                 <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></a>
-                <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="bottom"></button>
+                <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="bottom"
+                (click)="confirmarExclusao(pes)"></button>
               </ng-template>
             </p-column>
         </p-dataTable>       
