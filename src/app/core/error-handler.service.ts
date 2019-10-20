@@ -16,19 +16,25 @@ export class ErrorHandlerService {
 
     if (typeof errorResponse === 'string'){
       msg = errorResponse;
-    } else{
-      msg = 'Erro ao processar um serviço.'
-      console.log('Ocorreu um erro',errorResponse);
-    }
-
-    if( errorResponse.status > 400 || errorResponse.status <= 499 ){
-      console.log('status 4xx');
-      var json = JSON.parse(errorResponse._body);
-      msg = json[0].mensagemUsuario;
+    } else if(errorResponse instanceof Response
+      && errorResponse.status >= 400 && errorResponse.status <= 499){
       
-    }
+        let errors;
+        msg = 'Ocorreu um erro ao processar a sua solicitação.'
+        
+        try {
+          errors = errorResponse.json()
 
-    
+          msg = errors[0].mensagemUsuario;
+
+        } catch (error) {          
+        }
+
+        console.log('Ocorreu um erro ',errorResponse);
+    } else{
+      msg = "Erro ao processar um serviço remoto. Tente novamente.";
+      console.error('Ocorreu um erro ',errorResponse);
+    }
 
     this.toast.error(msg);
   }
