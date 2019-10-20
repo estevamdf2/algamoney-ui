@@ -2,7 +2,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser'
 import { NgModule } from '@angular/core';
 
+
 import { ToastyModule } from 'ng2-toasty';
+import { ConfirmDialogModule, ConfirmationService } from 'primeng/primeng';
+
 
 import { AppComponent } from './app.component';
 import { PessoasModule } from './pessoas/pessoas.module';
@@ -29,9 +32,10 @@ import { PessoaService } from './pessoas/pessoa.service';
     CoreModule,        
     HttpModule,
     HttpClientModule,
-    ToastyModule.forRoot()
+    ToastyModule.forRoot(),
+    ConfirmDialogModule,
   ],
-  providers: [LancamentoService,PessoaService],
+  providers: [LancamentoService,PessoaService, ConfirmationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
