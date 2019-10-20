@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LancamentoService, LancamentoFiltro } from '../lancamento.service';
 import { LazyLoadEvent } from 'primeng/primeng';
 
@@ -7,7 +7,7 @@ import { LazyLoadEvent } from 'primeng/primeng';
   templateUrl: './lancamentos-pesquisa.component.html',
   styleUrls: ['./lancamentos-pesquisa.component.css']
 })
-export class LancamentosPesquisaComponent {
+export class LancamentosPesquisaComponent implements OnInit {
 
   totalRegistros = 0;
   filtro = new LancamentoFiltro();  
@@ -17,7 +17,9 @@ export class LancamentosPesquisaComponent {
     
   }
 
-  pesquisar(pagina){
+  ngOnInit() { }
+
+  pesquisar(pagina = 0){
     pagina = 0;    
     this.filtro.pagina = pagina;    
 

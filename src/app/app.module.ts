@@ -10,11 +10,13 @@ import { CoreModule } from './core/core.module';
 import { LancamentoService } from './lancamentos/lancamento.service';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { PessoaService } from './pessoas/pessoa.service';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent    
 
   ],
   imports: [
@@ -27,7 +29,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpModule,
     HttpClientModule
   ],
-  providers: [LancamentoService],
+  providers: [LancamentoService,PessoaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

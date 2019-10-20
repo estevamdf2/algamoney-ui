@@ -1,5 +1,8 @@
 <div class="container">
   <div class="ui-g">
+
+  <form autocomplete="off" (ngSubmit)="pesquisar()">
+
     <div class="ui-g-12">
       <h1>Pessoas</h1>
     </div>
@@ -7,16 +10,41 @@
 
   <div class="ui-g-12 ui-fluid">
     <label>Nome</label>
-    <input pInputText type="text">
+    <input pInputText type="text" name="nome" [(ngModel)]="filtro.nome">
   </div>
 
   <div class="ui-g-12">
       <button pButton type="submit" label="Pesquisar"></button>
   </div>
+</form>
 
   <div class="ui-g">
       <div class="ui-g-12">
-       <app-pessoas-grid [pessoas]="pessoas"></app-pessoas-grid>
+
+          <p-dataTable [value]="pessoas" [responsive]="true"
+              emptyMessage="Nenhuma pessoa encontrada"
+              [paginator]="true" [rows]="filtro.itensPorPagina"
+              [lazy]="true" [totalRecords]="totalRegistros"
+              (onLazyLoad)="aoMudarPagina($event)">
+            <p-column field="nome" header="Nome" styleClass="col-dados"></p-column>
+            <p-column field="cidade" header="Cidade" styleClass="col-dados"></p-column>
+            <p-column field="estado" header="Estado" styleClass="col-data"></p-column>
+            <p-column field="status" header="Status" styleClass="col-data">          
+              <ng-template let-pess="rowData" pTemplate="body">
+                <span [style.color]="pess.status ? 'green' : 'red'" [pTooltip]="pess.status ? 'Desativar' : 'Ativar'" tooltipPosition="bottom">
+                  {{pess.status ? 'Ativo' : 'Inativo'}}
+                </span>
+              </ng-template>
+            </p-column>
+            <p-column header="Ações" styleClass="col-acoes">
+              <ng-template pTemplate="body">
+                <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></a>
+                <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="bottom"></button>
+              </ng-template>
+            </p-column>
+            </p-dataTable>
+
+       
       </div>
     
       <div class="ui-g-12">
