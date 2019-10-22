@@ -65,18 +65,23 @@ export class PessoasPesquisaComponent {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
-  ativaDesativa(pessoa:any){
+  alternarStatus(pessoa:any){
     console.log('clicou ',pessoa);
+    let novoStatus = !pessoa.ativo
     if(pessoa.ativo){
       pessoa.ativo = false;
     } else {
       pessoa.ativo = true;
     }
 
-    this.pessoaService.ativaDesativa(pessoa)
+    this.pessoaService.alternarStatus(pessoa.codigo, novoStatus)
       .then(() => {
-        console.log('atualizando contato');
+        const acao = novoStatus ? 'ativada' : 'desativada';
+
+        pessoa.ativo = novoStatus;
+        this.toasty.success(`Pessoa ${acao} com sucesso! `);
       })
+      .catch(erro =>this.errorHandler.handle(erro));
     
   }
 
