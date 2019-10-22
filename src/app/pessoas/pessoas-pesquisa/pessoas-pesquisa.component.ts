@@ -65,4 +65,19 @@ export class PessoasPesquisaComponent {
       .catch(erro => this.errorHandler.handle(erro));
   }
 
+  ativaDesativa(pessoa:any){
+    console.log('clicou ',pessoa);
+    if(pessoa.ativo){
+      pessoa.ativo = false;
+    } else {
+      pessoa.ativo = true;
+    }
+
+    this.pessoaService.ativaDesativa(pessoa)
+      .then(() => {
+        console.log('atualizando contato');
+      })
+    
+  }
+
 }

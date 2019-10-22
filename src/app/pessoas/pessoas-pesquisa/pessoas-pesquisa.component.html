@@ -30,7 +30,7 @@
             <p-column field="endereco.estado" header="Estado" styleClass="col-data"></p-column>
             <p-column field="ativo" header="Status" styleClass="col-data">          
               <ng-template let-pes="rowData" pTemplate="body">
-                <a href="javascript:;" [pTooltip]="pes.ativo ? 'Desativar' : 'Ativar'"
+                <a href="#" (click)="ativaDesativa(pes);" [pTooltip]="pes.ativo ? 'Desativar' : 'Ativar'"
                   tooltipPosition="top">
                   {{ pes.ativo ? 'Ativo' : 'Inativo' }}
                 </a>
