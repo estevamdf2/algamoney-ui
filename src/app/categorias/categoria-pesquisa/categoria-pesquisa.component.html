@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="ui-g">
+
+  <form autocomplete="off" (ngSubmit)="listarTodas()">
+
+    <div class="ui-g-12">
+      <h1>Categorias</h1>
+    </div>
+  
+    <div class="ui-g-12 ui-fluid">
+      <label>Nome</label>
+      <input pInputText type="text" name="nome">
+    </div>
+
+    <div class="ui-g-12">
+        <button pButton type="submit" label="Pesquisar"></button>
+    </div>
+  </form>
+
+<div class="ui-g">
+  <div class="ui-g-12">
+      <!--<p-dataTable [responsive]="true"
+            emptyMessage="Nenhuma categoria encontrada"          
+            >
+          <p-column field="codigo" header="Codigo" styleClass="col-dados"></p-column>
+          <p-column field="nome" header="Nome" styleClass="col-dados"></p-column>
+          <p-column header="Ações" styleClass="col-acoes">
+            <ng-template pTemplate="body" let-cat="rowData">
+              <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></a>
+              <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="bottom"
+              (click)="confirmarExclusao(cat)"></button>
+            </ng-template>
+          </p-column> -->
+      </p-dataTable>       
+  </div>
+  
+    <div class="ui-g-12">
+      <a pButton label="Nova categoria"></a>
+    </div>
+</div>
+
+  </div>
+</div>

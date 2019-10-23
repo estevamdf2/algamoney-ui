@@ -8,11 +8,13 @@ import { LancamentosModule } from './lancamentos/lancamentos.module';
 import { CoreModule } from './core/core.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
+import { CategoriaPesquisaComponent } from './categorias/categoria-pesquisa/categoria-pesquisa.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CategoriaPesquisaComponent
   ],
   imports: [
     BrowserModule,
