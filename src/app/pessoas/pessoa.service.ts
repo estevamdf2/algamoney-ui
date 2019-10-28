@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http , Headers, URLSearchParams} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
+import { Pessoa } from '../core/model';
 
 export class PessoaFiltro {
   nome: string;  
@@ -20,7 +21,7 @@ export class PessoaService {
 
     const params = new URLSearchParams();
     const headers = new Headers();
-    headers.append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MTc2NDc2MiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiMmYxYjk1YjEtODU5Ni00ODIzLTkxODItZTViNTUxYTUxZGI5IiwiY2xpZW50X2lkIjoibW9iaWxlIn0.1sa7tLBmYp-JfxCwIxLqEssXEyCRXdiRf8GKIbfQW5A');
+    headers.append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MjI4Mjc4MCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiNDlkMjBiNWEtMWVmYi00OTMwLTk1NzQtMDEyMjQ4ZjFjZTI3IiwiY2xpZW50X2lkIjoibW9iaWxlIn0.QABUP-DdePCvUDKOBAApaYe0oPnAzdjA9pUTFW3RtwI');
     
 
     params.set('page',filtro.pagina.toString());
@@ -69,7 +70,6 @@ export class PessoaService {
   }
 
   alternarStatus(codigo: number, ativo:boolean): Promise<void> {
-
     
     const headers = new Headers();
     headers.append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MTc2NDc2MiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiMmYxYjk1YjEtODU5Ni00ODIzLTkxODItZTViNTUxYTUxZGI5IiwiY2xpZW50X2lkIjoibW9iaWxlIn0.1sa7tLBmYp-JfxCwIxLqEssXEyCRXdiRf8GKIbfQW5A');
@@ -80,6 +80,19 @@ export class PessoaService {
       .then(() => null);
         
       
+  }
+
+  adicionar(pessoa: Pessoa): Promise<Pessoa>{
+
+    const headers = new Headers();
+    headers.append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MjI4MjkyNywiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiN2ZlNWViMjEtZGJmZS00YjhmLWIzNWYtZDFmMGMxNDY3YTYyIiwiY2xpZW50X2lkIjoibW9iaWxlIn0.aDfnemAHcU9TVBOXNeL8-TjytK559lKsa9Pa8IMOxe4');
+    headers.append('Content-Type','application/json');
+
+    return this.http.post(this.pessoasUrl, JSON.stringify(pessoa),{headers})
+      .toPromise()
+      .then(response => response.json());
+
+
   }
 
 
