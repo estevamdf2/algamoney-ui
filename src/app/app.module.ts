@@ -9,7 +9,16 @@ import { CoreModule } from './core/core.module';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriaPesquisaComponent } from './categorias/categoria-pesquisa/categoria-pesquisa.component';
+import { LancamentosPesquisaComponent } from './lancamentos/lancamentos-pesquisa/lancamentos-pesquisa.component';
+import { LancamentoCadastroComponent } from './lancamentos/lancamento-cadastro/lancamento-cadastro.component';
+import { PessoasPesquisaComponent } from './pessoas/pessoas-pesquisa/pessoas-pesquisa.component';
+import { Routes, RouterModule } from '@angular/router';
 
+const routes: Routes = [
+  {path: 'lancamentos', component: LancamentosPesquisaComponent},
+  {path: 'lancamentos/novo', component: LancamentoCadastroComponent},
+  {path: 'pessoas', component: PessoasPesquisaComponent},
+]
 
 @NgModule({
   declarations: [
@@ -24,7 +33,8 @@ import { CategoriaPesquisaComponent } from './categorias/categoria-pesquisa/cate
     PessoasModule,
     CoreModule,        
     HttpModule,
-    HttpClientModule    
+    HttpClientModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
