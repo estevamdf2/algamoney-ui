@@ -15,6 +15,7 @@ import { CalendarModule } from 'primeng/components/calendar/calendar';
 import { SelectButtonModule } from 'primeng/components/selectbutton/selectbutton';
 import { DropdownModule } from 'primeng/components/dropdown/dropdown';
 import { CurrencyMaskModule } from 'ng2-currency-mask/src/currency-mask.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { CurrencyMaskModule } from 'ng2-currency-mask/src/currency-mask.module';
     SelectButtonModule,
     DropdownModule,
     CurrencyMaskModule,
-    SharedModule
+    SharedModule,
+    RouterModule
 
   ],
   declarations: [

@@ -11,6 +11,7 @@ import { TooltipModule } from 'primeng/components/tooltip/tooltip';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { SharedModule } from './../shared/shared.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -21,7 +22,8 @@ import { SharedModule } from './../shared/shared.module';
     ButtonModule,
     DataTableModule,
     TooltipModule,
-    SharedModule
+    SharedModule,
+    RouterModule
   ],
   declarations: [
     PessoasPesquisaComponent,
