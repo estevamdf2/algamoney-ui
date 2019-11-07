@@ -75,7 +75,7 @@ export class LancamentoService {
   adicionar(lancamento: Lancamento): Promise<Lancamento> {
 
     const headers = new Headers();
-    headers.append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MjAyNDE3NiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiNzMxYmJlMjMtZmNjZC00MTEzLTgzM2ItY2IyYzU1MWU4NjExIiwiY2xpZW50X2lkIjoibW9iaWxlIn0.GTfWEHGTERRfAhRRFtPv5d4W0TlJXp3U7u9Ao22ge5I');
+    headers.append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MzE0NDU4OSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiZDZiMDBiMDktYzE2OS00MWUxLThlMWYtYmUyMmNlMTY4NDUyIiwiY2xpZW50X2lkIjoibW9iaWxlIn0.8RZ99yIWopQcdR1kG9m9pQVpg8K7DzNJDBk-yTNk2jo');
     headers.append('Content-Type', 'application/json');    
 
     console.log('lancamento ',lancamento);
@@ -88,13 +88,19 @@ export class LancamentoService {
   atualizar(lancamento: Lancamento): Promise<Lancamento> {
 
     const headers = new Headers();
-    headers.append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MjYyNzk0MiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiOWEzNWVjZjktOTgxYi00YjdhLWI0NzYtYmRiNjlmYjhkNzhkIiwiY2xpZW50X2lkIjoibW9iaWxlIn0.0vhxa7-ZE956rRbCfCtlxWiOmYGCXJbggsjx4tplUxU');
+    headers.append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MzE0NDU4OSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiZDZiMDBiMDktYzE2OS00MWUxLThlMWYtYmUyMmNlMTY4NDUyIiwiY2xpZW50X2lkIjoibW9iaWxlIn0.8RZ99yIWopQcdR1kG9m9pQVpg8K7DzNJDBk-yTNk2jo');
     headers.append('Content-Type', 'application/json');    
 
     console.log('lancamento ',lancamento);
-    return this.http.put(this.lancamentosUrl, JSON.stringify(lancamento), {headers})
+    return this.http.put(`${this.lancamentosUrl}/${lancamento.codigo}`,JSON.stringify(lancamento), {headers})
       .toPromise()
-      .then(() => null);
+      .then(response => {
+        const lancamentoAlterado = response.json() as Lancamento;
+
+        this.converterStringsParaDatas([lancamentoAlterado]);
+
+        return lancamento;
+      });
 
   }
 
@@ -106,7 +112,27 @@ export class LancamentoService {
 
     return this.http.get(`${this.lancamentosUrl}/${codigo}`, { headers})
       .toPromise()
-      .then(response => response.json());       
+      .then(response => {
+        const lancamento = response.json() as Lancamento;
+
+        this.converterStringsParaDatas([lancamento]);
+
+        return lancamento;
+
+      });       
       
   }
+
+  private converterStringsParaDatas(lancamentos: Lancamento[]) {
+    for (const lancamento of lancamentos) {
+      lancamento.dataVencimento = moment(lancamento.dataVencimento,
+        'YYYY-MM-DD').toDate();
+
+      if (lancamento.dataPagamento) {
+        lancamento.dataPagamento = moment(lancamento.dataPagamento,
+          'YYYY-MM-DD').toDate();
+      }
+    }
+  }
+
 }
