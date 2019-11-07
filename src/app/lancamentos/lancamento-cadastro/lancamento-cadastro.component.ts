@@ -8,6 +8,8 @@ import { PessoaService } from '../../pessoas/pessoa.service';
 import { Lancamento } from '../../core/model';
 import { LancamentoService } from '../lancamento.service';
 import { ActivatedRoute } from '@angular/router';
+import moment = require('moment');
+// import moment = require('moment');
 
 @Component({
   selector: 'app-lancamento-cadastro',
@@ -35,10 +37,24 @@ export class LancamentoCadastroComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    console.log(this.route.snapshot.params['codigo']);
+    
+    const codigoLancamento = this.route.snapshot.params['codigo']
+    
+    if(codigoLancamento){
+      this.carregarLancamento(codigoLancamento);
+    }
     
     this.carregarCategorias();
     this.carregarPessoas();
+  }
+
+
+  carregarLancamento(codigo: number){
+    return this.lancamentoService.buscarPorCodigo(codigo)
+      .then(lancamento => {
+        this.lancamento = lancamento;
+      })
+      .catch(erro => this.errorHandler.handle(erro));
   }
 
   carregarCategorias(){
@@ -69,5 +85,29 @@ export class LancamentoCadastroComponent implements OnInit {
       .catch(erro => this.errorHandler.handle(erro))
 
     console.log(this.lancamento);
+  }
+
+  buscarPorCodigo(codigo:number){
+    return this.lancamentoService.buscarPorCodigo(codigo)
+      .then(result => {
+        this.lancamento = result;
+      });
+
+  }
+
+  atualizar(form:FormControl){
+    this.lancamentoService.atualizar(this.lancamento)
+      .then(() => {
+        this.toasty.success('Lançamento alterado com sucesso!!! ');
+
+        form.reset();
+        this.lancamento = new Lancamento();
+      })
+  }
+
+  private converterStringsParaDatas(lancamentos: Lancamento[]){
+    // moment.calendarFormat('ddMMYYYY');
+    moment().format('ddMMYYYY');
+    moment().format();
   }
 }
