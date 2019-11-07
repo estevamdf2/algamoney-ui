@@ -48,6 +48,9 @@ export class LancamentoCadastroComponent implements OnInit {
     this.carregarPessoas();
   }
 
+  get editando(){
+    return Boolean(this.lancamento.codigo);
+  }
 
   carregarLancamento(codigo: number){
     return this.lancamentoService.buscarPorCodigo(codigo)
