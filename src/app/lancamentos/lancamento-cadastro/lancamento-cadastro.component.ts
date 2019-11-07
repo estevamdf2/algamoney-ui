@@ -8,8 +8,6 @@ import { PessoaService } from '../../pessoas/pessoa.service';
 import { Lancamento } from '../../core/model';
 import { LancamentoService } from '../lancamento.service';
 import { ActivatedRoute } from '@angular/router';
-import moment = require('moment');
-// import moment = require('moment');
 
 @Component({
   selector: 'app-lancamento-cadastro',
@@ -43,7 +41,7 @@ export class LancamentoCadastroComponent implements OnInit {
     if(codigoLancamento){
       this.carregarLancamento(codigoLancamento);
     }
-    
+
     this.carregarCategorias();
     this.carregarPessoas();
   }
@@ -108,9 +106,4 @@ export class LancamentoCadastroComponent implements OnInit {
       })
   }
 
-  private converterStringsParaDatas(lancamentos: Lancamento[]){
-    // moment.calendarFormat('ddMMYYYY');
-    moment().format('ddMMYYYY');
-    moment().format();
-  }
 }
