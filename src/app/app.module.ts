@@ -16,12 +16,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { PessoaCadastroComponent } from './pessoas/pessoa-cadastro/pessoa-cadastro.component';
 
 const routes: Routes = [
+  {path: '', redirectTo: 'lancamentos', pathMatch: 'full'},
   {path: 'lancamentos', component: LancamentosPesquisaComponent},
   {path: 'lancamentos/novo', component: LancamentoCadastroComponent},
   {path: 'lancamentos/:codigo', component: LancamentoCadastroComponent},
   {path: 'pessoas', component: PessoasPesquisaComponent},
   {path: 'pessoas/novo', component: PessoaCadastroComponent},
-]
+];
 
 @NgModule({
   declarations: [
