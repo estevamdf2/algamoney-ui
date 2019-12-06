@@ -25,7 +25,7 @@ const routes: Routes = [
   {path: 'pessoas', component: PessoasPesquisaComponent},
   {path: 'pessoas/novo', component: PessoaCadastroComponent},
   {path: 'pagina-nao-encontrada', component: PaginaNaoEncontradaComponent},
-  {path: '**', redirectTo: 'PaginaNaoEncontradaComponent'}
+  {path: '**', redirectTo: 'pagina-nao-encontrada'}
 
 
 ];
