@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { FormControl } from '@angular/forms';
 import { PessoaService } from '../pessoa.service';
 import { ToastyService } from 'ng2-toasty';
-import { FormControl } from '@angular/forms';
 import { Pessoa } from '../../core/model';
 import { ErrorHandlerService } from '../../core/error-handler.service';
 
@@ -16,10 +17,12 @@ export class PessoaCadastroComponent implements OnInit {
   constructor(
     private pessoaService: PessoaService,
     private errorHandler: ErrorHandlerService,
-    private toasty: ToastyService
+    private toasty: ToastyService,
+    private title: Title
   ) { }
 
   ngOnInit() {
+    this.title.setTitle('Pesquisa de pessoas');
   }
 
   salvar(form: FormControl){
