@@ -38,8 +38,10 @@
             </p-column>
             <p-column header="Ações" styleClass="col-acoes">
               <ng-template pTemplate="body" let-pes="rowData">
-                <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="bottom"></a>
-                <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="bottom"
+                <a pButton icon="fa-pencil" pTooltip="Editar" tooltipPosition="bottom"
+                  [routerLink]="['/pessoas', pes.codigo]">
+                </a>                
+                <button pButton icon="fa-trash" pTooltip="Excluir" tooltipPosition="bottom"                
                 (click)="confirmarExclusao(pes)"></button>
               </ng-template>
             </p-column>
