@@ -29,9 +29,6 @@ import { RouterModule } from '@angular/router';
     PessoasPesquisaComponent,
     PessoaCadastroComponent    
   ],
-  exports: [
-    PessoasPesquisaComponent,
-    PessoaCadastroComponent    
-  ]
+  exports: []
 })
 export class PessoasModule { }
