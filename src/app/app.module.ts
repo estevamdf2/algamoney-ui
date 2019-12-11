@@ -14,6 +14,7 @@ import { LancamentoCadastroComponent } from './lancamentos/lancamento-cadastro/l
 import { PessoasPesquisaComponent } from './pessoas/pessoas-pesquisa/pessoas-pesquisa.component';
 import { Routes, RouterModule } from '@angular/router';
 import { PessoaCadastroComponent } from './pessoas/pessoa-cadastro/pessoa-cadastro.component';
+import { SegurancaComponent } from './seguranca/seguranca.component';
 
 const routes: Routes = [
   {path: 'lancamentos', component: LancamentosPesquisaComponent},
@@ -26,7 +27,8 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    CategoriaPesquisaComponent
+    CategoriaPesquisaComponent,
+    SegurancaComponent
   ],
   imports: [
     BrowserModule,

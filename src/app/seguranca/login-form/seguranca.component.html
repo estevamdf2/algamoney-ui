@@ -1,0 +1,28 @@
+<div class="container">
+  <form #formLogin="ngForm" autocomplete="off" (ngSubmit)="login(formLogin)">
+    <div class="ui-g">
+      <div class="ui-g-12">
+        <h1>Login</h1>
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+       <input pInputText type="text" name="email"
+         [(ngModel)]="lancamento.descricao"
+          #email="ngModel" required minlength="5">
+      </div>
+
+      <div class="ui-g-12 ui-md-9 ui-fluid">
+        <input pInputText type="password" name="senha"
+          [(ngModel)]="lancamento.descricao"
+           #senha="ngModel" required minlength="6">
+       </div>
+
+       <div class="ui-g-12 ui-md-9 ui-fluid">
+        <input pInputText type="text" name="e-mail"
+          [(ngModel)]="lancamento.descricao"
+           #email="ngModel" required minlength="5">
+       </div>
+
+       <div class="ui-g-12">
+         <button pButton type="submit" label="Login" [disabled]="formLogin.invalid"></button>
+       </div>
