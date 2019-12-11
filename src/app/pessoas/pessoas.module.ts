@@ -11,7 +11,8 @@ import { TooltipModule } from 'primeng/components/tooltip/tooltip';
 import { PessoasPesquisaComponent } from './pessoas-pesquisa/pessoas-pesquisa.component';
 import { PessoaCadastroComponent } from './pessoa-cadastro/pessoa-cadastro.component';
 import { SharedModule } from './../shared/shared.module';
-import { RouterModule } from '@angular/router';
+import { PessoasRoutingModule } from './pessoas-routing-module';
+
 
 @NgModule({
   imports: [
@@ -23,15 +24,13 @@ import { RouterModule } from '@angular/router';
     DataTableModule,
     TooltipModule,
     SharedModule,
-    RouterModule
+    PessoasRoutingModule
+    
   ],
   declarations: [
     PessoasPesquisaComponent,
     PessoaCadastroComponent    
   ],
-  exports: [
-    PessoasPesquisaComponent,
-    PessoaCadastroComponent    
-  ]
+  exports: []
 })
 export class PessoasModule { }

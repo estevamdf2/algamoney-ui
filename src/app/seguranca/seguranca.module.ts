@@ -4,21 +4,20 @@ import { FormsModule } from "@angular/forms";
 
 import { ButtonModule, InputTextModule } from "primeng/primeng";
 
-import { SegurancaComponent } from "./login-form/seguranca.component";
+import { LoginFormComponent } from "./login-form/login-form.component";
+import { SegurancaRoutingModule } from "./seguranca-routing-module";
 
 @NgModule({
     imports: [      
       FormsModule,      
       ButtonModule,
       InputTextModule,                  
-      RouterModule
-  
+      RouterModule,
+      SegurancaRoutingModule 
     ],
     declarations: [
-      SegurancaComponent
+      LoginFormComponent
     ],
-    exports: [
-      SegurancaComponent,      
-    ]
+    exports: []
   })
   export class SegurancaModule { }
