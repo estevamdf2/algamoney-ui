@@ -7,6 +7,7 @@ import { ButtonModule, InputTextModule } from "primeng/primeng";
 import { SegurancaRoutingModule } from "./seguranca-routing-module";
 import { LoginFormComponent } from "./login-form/login-form.component";
 import { AuthService } from "./auth.service";
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { AuthService } from "./auth.service";
       SegurancaRoutingModule 
     ],
     declarations: [LoginFormComponent],
-    providers: [AuthService],
+    providers: [AuthService, JwtHelperService],
     exports: []
   })
   export class SegurancaModule { }

@@ -2,12 +2,18 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @Injectable()
 export class AuthService {
 
   oauthTokenUrl = 'http://localhost:8080/oauth/token';
-  constructor(private http: Http) { }
+  jwtPayload: any;
+
+  constructor(
+       private http: Http,
+       private jwtHelper: JwtHelperService
+      ){ }
 
   login(usuario: string, senha: string): Promise<void>{
 
@@ -21,11 +27,15 @@ export class AuthService {
       .toPromise()
       .then(response => {
         console.log(response);
+        this.armazenarToken(response.json());
       })
       .catch(response => {
         console.log(response);
       })
+  }
 
+  private armazenarToken(token: string){
+    this.jwtPayload = this.jwtHelper.decodeToken(token);
   }
 
 }
