@@ -6,7 +6,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class AuthService {
 
-  oauthTokenUrl = 'localhost:8080/oauth/token';
+  oauthTokenUrl = 'http://localhost:8080/oauth/token';
   constructor(private http: Http) { }
 
   login(usuario: string, senha: string): Promise<void>{
@@ -15,7 +15,7 @@ export class AuthService {
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     headers.append('Autorization' , 'Basic YW5ndWxhcjpAbmd1bEByMA==');
 
-    const body = `username=${usuario}&password=${senha}&grant_type=password`;
+    const body = `username=${usuario}&password=${senha}&grant_type=password`;    
 
     return this.http.post(this.oauthTokenUrl, body, { headers} )
       .toPromise()
