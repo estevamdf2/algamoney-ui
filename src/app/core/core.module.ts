@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { registerLocaleData } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import localePt from '@angular/common/locales/pt';
+import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+
 
 import { ToastyModule, ToastyService } from 'ng2-toasty';
 import { ConfirmDialogModule } from 'primeng/components/confirmdialog/confirmdialog';
-import localePt from '@angular/common/locales/pt';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { ErrorHandlerService } from './error-handler.service';
@@ -22,7 +24,14 @@ registerLocaleData(localePt);
     CommonModule,
     ToastyModule.forRoot(),
     ConfirmDialogModule,
-    RouterModule
+    RouterModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: () => {
+          return '';
+        }
+      }
+  })    
   ],
   declarations: [NavbarComponent, PaginaNaoEncontradaComponent],
   exports:[
@@ -36,6 +45,7 @@ registerLocaleData(localePt);
     PessoaService,
     CategoriaService,
     ConfirmationService,
+    JwtHelperService,
     Title, 
     ErrorHandlerService,
     { provide: LOCALE_ID, useValue: 'pt-BR'}   
