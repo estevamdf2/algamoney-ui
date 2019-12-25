@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers, URLSearchParams } from '@angular/http';
+import { URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import { Lancamento } from '../core/model';
 import * as moment from 'moment';
@@ -44,7 +44,6 @@ export class LancamentoService {
         moment(filtro.dataVencimentoFim).format("YYYY-MM-DD"));
     }
 
-    console.log('params ', params);
     return this.http.get(`${this.lancamentosUrl}?resumo`,
       { search: params })
       .toPromise()
@@ -63,12 +62,7 @@ export class LancamentoService {
 
   excluir(codigo: number): Promise<void> {
 
-    console.log('codigo ', codigo);
-    const headers = new Headers();
-    headers.append('Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MjU0MTQ1NiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiZDkwNTY3MTEtNzc5NC00YzVmLWI4NGUtNGVmNTQ5NmIxNTEwIiwiY2xpZW50X2lkIjoibW9iaWxlIn0.BxtWwyEDJdv1iY2sCTyiUWu0TwbeV6_HLEYspGBprMc');
-
-
-    return this.http.delete(`${this.lancamentosUrl}/${codigo}`, { headers })
+    return this.http.delete(`${this.lancamentosUrl}/${codigo}`)
       .toPromise()
       .then(() => null);
 
@@ -76,13 +70,7 @@ export class LancamentoService {
 
   adicionar(lancamento: Lancamento): Promise<Lancamento> {
 
-    const headers = new Headers();
-    headers.append('Authorization', 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MzU3NzE2NCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiZmU0OTVkYmQtOGYyMy00Mzc5LTkzOTQtOTVjMzQ2NjUyZmFlIiwiY2xpZW50X2lkIjoibW9iaWxlIn0.uzjX0u_ENQXzWmvGWU_Nk19ZS3GygsD8r0d0u3XQXYI');
-    headers.append('Content-Type', 'application/json');    
-
-
-    console.log('lancamento ', lancamento);
-    return this.http.post(this.lancamentosUrl, JSON.stringify(lancamento), { headers })
+    return this.http.post(this.lancamentosUrl, JSON.stringify(lancamento))
       .toPromise()
       .then(response => response.json());
 
@@ -90,12 +78,8 @@ export class LancamentoService {
 
   atualizar(lancamento: Lancamento): Promise<Lancamento> {
 
-    const headers = new Headers();
-    headers.append('Authorization', 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3MzE0NjU5NiwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiMzdhYzFmMzMtNTdhMS00OTdmLTkyYTktOWU5MzNjMzgwY2M4IiwiY2xpZW50X2lkIjoibW9iaWxlIn0.PYHAaGQvsisaq5qGjEjFYf5TnR7_2-8jB86J6ek1-w0');
-    headers.append('Content-Type', 'application/json');
-
     return this.http.put(`${this.lancamentosUrl}/${lancamento.codigo}`,
-        JSON.stringify(lancamento), { headers })
+        JSON.stringify(lancamento))
       .toPromise()
       .then(response => {
         const lancamentoAlterado = response.json() as Lancamento;
@@ -108,10 +92,8 @@ export class LancamentoService {
   }
   
   buscarPorCodigo(codigo: number): Promise<Lancamento> {
-    const headers = new Headers();
-    headers.append('Authorization', 'bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX25hbWUiOiJhZG1pbkBhbGdhbW9uZXkuY29tIiwic2NvcGUiOlsicmVhZCJdLCJub21lIjoiQWRtaW5pc3RyYWRvciIsImV4cCI6MTU3NTYzMDQ5NSwiYXV0aG9yaXRpZXMiOlsiUk9MRV9DQURBU1RSQVJfQ0FURUdPUklBIiwiUk9MRV9QRVNRVUlTQVJfUEVTU09BIiwiUk9MRV9SRU1PVkVSX1BFU1NPQSIsIlJPTEVfQ0FEQVNUUkFSX0xBTkNBTUVOVE8iLCJST0xFX1BFU1FVSVNBUl9MQU5DQU1FTlRPIiwiUk9MRV9SRU1PVkVSX0xBTkNBTUVOVE8iLCJST0xFX0NBREFTVFJBUl9QRVNTT0EiLCJST0xFX1BFU1FVSVNBUl9DQVRFR09SSUEiXSwianRpIjoiMWM5NjBjMjctMGU5ZC00M2YxLThmNjUtYzIzZjY0NjRlMTZkIiwiY2xpZW50X2lkIjoibW9iaWxlIn0.3mKApAFFfMJvyxuE6zvTKuXNOsHHhZRANSoWFKDDlHM');
-
-    return this.http.get(`${this.lancamentosUrl}/${codigo}`, { headers })
+    
+    return this.http.get(`${this.lancamentosUrl}/${codigo}`)
       .toPromise()
       .then(response => {
         const lancamento = response.json() as Lancamento;
@@ -134,5 +116,4 @@ export class LancamentoService {
       }
     }
   }
-
 }
