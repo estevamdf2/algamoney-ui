@@ -59,6 +59,10 @@ export class AuthService {
 
   }
 
+  private temPermissao(permissao: string){
+    return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
+  }
+
   private logout(){
 
   }
