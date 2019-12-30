@@ -17,6 +17,7 @@ import { PessoaService } from '../pessoas/pessoa.service';
 import { ConfirmationService } from 'primeng/primeng';
 import { CategoriaService } from '../categorias/categoria.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
+import { NaoAutorizadoComponent } from './nao-autorizado/nao-autorizado.component';
 
 registerLocaleData(localePt);
 @NgModule({
@@ -33,7 +34,7 @@ registerLocaleData(localePt);
       }
   })    
   ],
-  declarations: [NavbarComponent, PaginaNaoEncontradaComponent],
+  declarations: [NavbarComponent, PaginaNaoEncontradaComponent, NaoAutorizadoComponent],
   exports:[
     NavbarComponent,
     ToastyModule,
