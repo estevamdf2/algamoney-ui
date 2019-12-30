@@ -10,14 +10,15 @@ import { ButtonModule, InputTextModule } from "primeng/primeng";
 import { SegurancaRoutingModule } from "./seguranca-routing-module";
 import { LoginFormComponent } from "./login-form/login-form.component";
 import { AuthService } from "./auth.service";
+import { MoneyHttp } from "./money-http";
 
-export function AuthHttpServiceFactory(http: Http, options: RequestOptions){
+export function AuthHttpServiceFactory(auth: AuthService, http: Http, options: RequestOptions){
   const config = new AuthConfig({
     globalHeaders: [
       { 'Content-Type': 'application/json' }
     ]
   });
-  return new AuthHttp(config, http, options);
+  return new MoneyHttp(auth, config, http, options);
 }
 
 
@@ -41,7 +42,7 @@ export function AuthHttpServiceFactory(http: Http, options: RequestOptions){
       {
        provide: AuthHttp,
         useFactory: AuthHttpServiceFactory,
-        deps: [Http, RequestOptions]
+        deps: [AuthService, Http, RequestOptions]
       }
       
     ],

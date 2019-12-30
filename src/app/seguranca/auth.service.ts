@@ -60,7 +60,7 @@ export class AuthService {
 
   }
 
-  obterNovoAccessToken(): Promise<void>{
+  obterNovoAccessToken(): Promise<void> {
     const body = 'grant_type=refresh_token';
     const headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
@@ -75,8 +75,15 @@ export class AuthService {
     .catch(response =>{
       console.error('Erro ao renovar token ',response);
       return Promise.resolve(null);
-    })
+    });
   }
+
+  isAccessTokenInvalido(){
+    const token = localStorage.getItem('token');
+
+    return !token || this.jwtHelper.isTokenExpired(token);
+  }
+
 
   private temPermissao(permissao: string){
     return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
