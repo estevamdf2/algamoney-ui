@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AuthHttp } from 'angular2-jwt';
-import { Headers, URLSearchParams} from '@angular/http';
+
+import { environment } from '../../environments/environment';
 import 'rxjs/add/operator/toPromise';
 
 export class CategoriaFiltro{
@@ -11,8 +12,11 @@ export class CategoriaFiltro{
 @Injectable()
 export class CategoriaService {
 
-    categoriaUrl = 'http://localhost:8080/categorias';
-    constructor(private http: AuthHttp){ }
+    categoriaUrl: string;
+    constructor(private http: AuthHttp){ 
+        this.categoriaUrl = `${environment.apiUrl}/categorias`;
+        
+    }
 
     listarTodas(): Promise<any> {        
     

@@ -3,11 +3,12 @@ import { Http, Headers } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class AuthService {
 
-  oauthTokenUrl = 'http://localhost:8080/oauth/token';
+  oauthTokenUrl:string;   
   jwtPayload: any;
 
   constructor(
@@ -15,6 +16,7 @@ export class AuthService {
     private jwtHelper: JwtHelperService
   ){
     this.carregarToken();
+    this.oauthTokenUrl = `${environment.apiUrl}/oauth/token`;
   }
 
   login(usuario: string, senha: string): Promise<void>{
@@ -89,7 +91,7 @@ export class AuthService {
     return !token || this.jwtHelper.isTokenExpired(token);
   }
 
-  private temPermissao(permissao: string){
+  public temPermissao(permissao: string){
     return this.jwtPayload && this.jwtPayload.authorities.includes(permissao);
   }
 

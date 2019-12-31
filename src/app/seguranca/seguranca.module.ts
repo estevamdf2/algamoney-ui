@@ -30,14 +30,7 @@ export function AuthHttpServiceFactory(auth: AuthService, http: Http, options: R
       FormsModule,           
       InputTextModule,                  
       ButtonModule,
-      SegurancaRoutingModule,
-      JwtModule.forRoot({
-        config: {
-          tokenGetter: () => {
-            return '';
-          }
-        }
-    })
+      SegurancaRoutingModule     
     ],
     declarations: [LoginFormComponent],
     providers: [AuthService, JwtHelperService,

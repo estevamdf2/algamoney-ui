@@ -25,14 +25,7 @@ registerLocaleData(localePt);
     CommonModule,
     ToastyModule.forRoot(),
     ConfirmDialogModule,
-    RouterModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: () => {
-          return '';
-        }
-      }
-  })    
+    RouterModule    
   ],
   declarations: [NavbarComponent, PaginaNaoEncontradaComponent, NaoAutorizadoComponent],
   exports:[
