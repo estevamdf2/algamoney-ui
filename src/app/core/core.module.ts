@@ -7,7 +7,7 @@ import localePt from '@angular/common/locales/pt';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
 
-import { ToastyModule, ToastyService } from 'ng2-toasty';
+import { ToastyModule } from 'ng2-toasty';
 import { ConfirmDialogModule } from 'primeng/components/confirmdialog/confirmdialog';
 
 import { NavbarComponent } from './navbar/navbar.component';
@@ -17,7 +17,7 @@ import { PessoaService } from '../pessoas/pessoa.service';
 import { ConfirmationService } from 'primeng/primeng';
 import { CategoriaService } from '../categorias/categoria.service';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada.component';
-import { NaoAutorizadoComponent } from './nao-autorizado/nao-autorizado.component';
+import { NaoAutorizadoComponent } from './nao-autorizado.component';
 
 registerLocaleData(localePt);
 @NgModule({
