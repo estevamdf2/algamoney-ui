@@ -78,6 +78,11 @@ export class AuthService {
     });
   }
 
+  limparAccessToken(){
+    localStorage.removeItem('token');
+    this.jwtPayload = null;
+  }
+
   isAccessTokenInvalido(){
     const token = localStorage.getItem('token');
 
@@ -95,10 +100,6 @@ export class AuthService {
       }
     }
     return false;
-  }
-
-  private logout(){
-
   }
 
 }
