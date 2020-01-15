@@ -4,7 +4,8 @@ import { registerLocaleData } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import localePt from '@angular/common/locales/pt';
-import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
+import { JwtHelper } from 'angular2-jwt';
+import { AuthService } from './../seguranca/auth.service';
 
 
 import { ToastyModule } from 'ng2-toasty';
@@ -39,8 +40,9 @@ registerLocaleData(localePt);
     PessoaService,
     CategoriaService,
     ConfirmationService,
-    JwtHelperService,
     Title, 
+    JwtHelper,
+    AuthService,
     ErrorHandlerService,
     { provide: LOCALE_ID, useValue: 'pt-BR'}   
   ]

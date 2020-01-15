@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
-import { JwtHelperService } from '@auth0/angular-jwt';
+import { JwtHelper } from 'angular2-jwt';
 import { environment } from '../../environments/environment';
 
 @Injectable()
@@ -13,7 +13,7 @@ export class AuthService {
 
   constructor(
     private http: Http,
-    private jwtHelper: JwtHelperService
+    private jwtHelper: JwtHelper
   ){
     this.carregarToken();
     this.oauthTokenUrl = `${environment.apiUrl}/oauth/token`;
@@ -25,6 +25,7 @@ export class AuthService {
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
     headers.append('Autorization' , 'Basic YW5ndWxhcjpAbmd1bEByMA==');
 
+    console.log('headers ',headers);
     const body = `username=${usuario}&password=${senha}&grant_type=password`;    
 
     return this.http.post(this.oauthTokenUrl, body,

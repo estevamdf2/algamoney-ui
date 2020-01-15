@@ -22,7 +22,6 @@
     "@angular/platform-browser": "^5.0.0",
     "@angular/platform-browser-dynamic": "^5.0.0",
     "@angular/router": "^5.0.0",
-    "@auth0/angular-jwt": "^3.0.1",
     "angular2-jwt": "^0.2.3",
     "core-js": "^2.4.1",
     "font-awesome": "^4.7.0",
@@ -51,11 +50,8 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.7.0",
     "typescript": "~2.4.2"
-
   },
-  "devDependencies": {
-    
-  },
+  "devDependencies": {},
   "engines": {
     "node": "10.6.1",
     "npm": "6.13.4"

@@ -1,7 +1,6 @@
 import { FormsModule } from "@angular/forms";
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
-import { JwtHelperService, JwtModule } from "@auth0/angular-jwt";
 import { AuthHttp, AuthConfig } from "angular2-jwt";
 import { Http, RequestOptions } from "@angular/http";
 
@@ -33,7 +32,7 @@ export function AuthHttpServiceFactory(auth: AuthService, http: Http, options: R
       SegurancaRoutingModule     
     ],
     declarations: [LoginFormComponent],
-    providers: [AuthService, JwtHelperService,
+    providers: [
       {
        provide: AuthHttp,
         useFactory: AuthHttpServiceFactory,
