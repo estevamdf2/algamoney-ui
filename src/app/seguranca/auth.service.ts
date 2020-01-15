@@ -23,7 +23,7 @@ export class AuthService {
 
     const headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    headers.append('Autorization' , 'Basic YW5ndWxhcjpAbmd1bEByMA==');
+    headers.append('Authorization' , 'Basic YW5ndWxhcjpAbmd1bEByMA==');
 
     console.log('headers ',headers);
     const body = `username=${usuario}&password=${senha}&grant_type=password`;    
@@ -67,7 +67,7 @@ export class AuthService {
     const body = 'grant_type=refresh_token';
     const headers = new Headers();
     headers.append('Content-Type', 'application/x-www-form-urlencoded');
-    headers.append('Autorization' , 'Basic YW5ndWxhcjpAbmd1bEByMA==');
+    headers.append('Authorization' , 'Basic YW5ndWxhcjpAbmd1bEByMA==');
 
     return this.http.post(this.oauthTokenUrl, body,
        {headers, withCredentials: true})
